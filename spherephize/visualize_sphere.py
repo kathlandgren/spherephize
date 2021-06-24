@@ -89,7 +89,7 @@ def make_hoverdata(x,y,z,input_temp):
     hoverdata=np.stack((lats.T, lons.T, trunc_temp.T), axis =-1)
     return hoverdata
 
-def plot_sphere(planet,theta,phi,temp,save=False,name="None"):
+def plot_sphere(planet,theta,phi,temp,cmin=700,cmax=1200,cscale='jet',save=False,name="None"):
     """
     This function creates the interactive visualization plot    
 
@@ -101,10 +101,14 @@ def plot_sphere(planet,theta,phi,temp,save=False,name="None"):
         longitudes.
     phi : array
         latitudes.
+    temp : array
+        temperature field data
     cmin : float, optional
         Lower bound on the colorbar, K. The default is 700.
     cmax : float, optional
         Upper bound on the colorbar, K. The default is 1200.
+    cscale : string
+        colormap to use
     save : bool, optional
         If true, save output as html. The default is False.
     name : string, optional
@@ -116,9 +120,6 @@ def plot_sphere(planet,theta,phi,temp,save=False,name="None"):
         
 
     """
-    x = np.outer(np.cos(theta),np.sin(phi))
-    y = np.outer(np.sin(theta),np.sin(phi))
-    z = np.outer(np.ones(129),np.cos(phi))
 
     x = np.outer(np.cos(theta),np.sin(phi))
     y = np.outer(np.sin(theta),np.sin(phi))
@@ -127,9 +128,14 @@ def plot_sphere(planet,theta,phi,temp,save=False,name="None"):
     
     hoverdata=make_hoverdata(x,y,z,temp)
     #call plotly
-    fig= go.Figure(go.Surface(x=x, y=y, z=z,surfacecolor=temp,cmax=1200,cmin=700,colorscale='jet',customdata=hoverdata,    hovertemplate ="lat: %{customdata[0]}"+\
+    fig= go.Figure(go.Surface(x=x, y=y, z=z,surfacecolor=temp,cmax=cmax,cmin=cmin,colorscale=cscale,customdata=hoverdata,    hovertemplate ="lat: %{customdata[0]}"+\
                              "<br>lon: %{customdata[1]}"+\
-                             "<br>temp:%{customdata[2]} K<extra></extra>"))
+                             "<br>temp:%{customdata[2]} K<extra></extra>", \
+                             contours = {
+         "x": {"show": True, "start": -1, "end": 1, "size": 1, "color":"black"},
+        "y": {"show": True, "start": -1, "end": 1, "size": 1, "color":"black"},
+        "z": {"show": True, "start": -1, "end": 1, "size": 1, "color":"black"}
+    }))
 
     
     fig.update_layout(scene = dict(
