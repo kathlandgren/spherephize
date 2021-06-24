@@ -2,11 +2,10 @@
 """
 Created on Wed Jun 23 11:51:58 2021
 
-@author: ek672
+@author: Kath Landgren
 
-This is the planet-plotly module
+This module contains the Sphere class and the visualization code
 """
-import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 
@@ -14,24 +13,77 @@ class Sphere:
     
     #init method
     def __init__(self, num_lat,num_lon,temp_type):
+        """
+        Initializes an object of the Sphere class
+
+        Parameters
+        ----------
+        num_lat : int
+            Positive integer, number of latitudes.
+        num_lon : int
+            Positive integer, number of longitudes.
+        temp_type : string
+            A string: "uniform", "zonal", or "custom".
+
+        Returns
+        -------
+        None.
+
+        """
         self.num_lat=num_lat
         self.num_lon=num_lon
         self.temp_type=temp_type
         
+        assert type(temp_type)==str, "Temperature type must be a string specifying accepted temperature types"
+        
     def make_lat(self):
+        """
+        Creates an array of latitudes based on the number of latitudes
+
+        Returns
+        -------
+        phi : array
+            Array of latitudes from 0 to pi.
+
+        """
         #creates an array of latitudes (phi)
         phi=np.linspace(0,np.pi,self.num_lat)
         self.phi=phi
         return phi
         
     def make_lon(self):
+        """
+        Creates an array of longitudes based on the number of longitudes
+
+        Returns
+        -------
+        theta : array
+            Array of longitudes from 0 to 2pi.
+
+        """
         #creates an array of longitudes (theta)
         theta=np.linspace(0,2*np.pi,self.num_lon)
         self.theta=theta
         return theta
         
     def make_temp(self,custom_data="None",mean_temp=1000):
-        #creates the temperature field
+        """
+        Creates the temperature field based on temperature type
+
+        Parameters
+        ----------
+        custom_data : array, optional
+            Custom temperature data. The default is "None".
+        mean_temp : float, optional
+            Mean temperature for the zonal and uniform temperature fields. 
+            The default is 1000.
+
+        Returns
+        -------
+        data : array 
+            temperature field data
+
+        """
         
         if self.temp_type=="uniform":
             #creates uniform temperature field
@@ -50,7 +102,15 @@ class Sphere:
         return data
 
     def get_temp(self):
-        
+        """
+        Gets the temperature from the object of class Sphere
+
+        Returns
+        -------
+        temp : array
+            temperature field assigned to the object.
+
+        """
         temp=self.temp
         return temp
 
