@@ -12,7 +12,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../spherephize'))
+sys.path.insert(0, os.path.abspath("../spherephize"))
 
 
 # -- Project information -----------------------------------------------------
