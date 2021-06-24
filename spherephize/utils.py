@@ -72,3 +72,24 @@ def fill_in_data(temp_data):
     to_append = to_append.reshape((len(to_append),1))
     temp = np.append(temp_data,to_append,axis=1).T
     return temp
+
+def get_data_dimensions(data):
+    """
+    Gets num_lat and num_lon from the imported data
+
+    Parameters
+    ----------
+    data : array
+        Temperature field data.
+
+    Returns
+    -------
+    num_lat : int
+        Number of latitudes.
+    num_lon : int
+        numbr of longitudes.
+
+    """
+    num_lat, num_lon=np.shape(data)
+    
+    return num_lat, num_lon

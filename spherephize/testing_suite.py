@@ -9,6 +9,14 @@ import visualize_sphere as vs
 
 
 def test_sphere_class():
+    """
+    This tests the constructor methon of the sphere class
+
+    Returns
+    -------
+    None.
+
+    """
     planet=vs.Sphere(10,20,"zonal")
     
     assert planet.num_lat==10, "Wrong latitudes"
@@ -17,5 +25,4 @@ def test_sphere_class():
     
     pass
     
-    
-    
+def test_
