@@ -88,7 +88,7 @@ class Sphere:
         
         if self.temp_type=="uniform":
             #creates uniform temperature field
-            data=mean_temp*np.ones((self.num_lat,self.num_lon))
+            data=mean_temp*np.ones((self.num_lon,self.num_lat))
 
         elif self.temp_type=="zonal":
             #creates zonal temperature field
