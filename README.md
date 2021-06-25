@@ -12,3 +12,4 @@ Spherephize uses plotly to create the interactive plots.
 [Check out this Tutorial on Colab!](https://colab.research.google.com/github/kathlandgren/spherephize/blob/main/Tutorial.ipynb)
 
 [![Documentation Status](https://readthedocs.org/projects/spherephize/badge/?version=latest)](http://spherephize.readthedocs.io/en/latest/?badge=latest)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5032520.svg)](https://zenodo.org/record/5032521#.YNYC22RKiUk)
