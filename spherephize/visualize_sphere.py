@@ -207,7 +207,6 @@ def plot_sphere(planet,theta,phi,temp,cmin=700,cmax=1200,cscale='jet',save=False
                         zaxis = dict(
                              showbackground=False,visible=False)))
                       
-    fig.show()
 
     if save==1:
         fig.write_html(name+".html")
