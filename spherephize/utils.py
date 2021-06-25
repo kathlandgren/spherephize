@@ -90,6 +90,6 @@ def get_data_dimensions(data):
         numbr of longitudes.
 
     """
-    num_lat, num_lon=np.shape(data)
+    num_lon, num_lat=np.shape(data)
     
     return num_lat, num_lon
