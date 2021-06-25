@@ -9,4 +9,6 @@ Spherephize lets you creat interactive plots of temperature fields on a planet, 
 You can create uniform or zonal temperature fields, or upload your own data.
 Spherephize uses plotly to create the interactive plots.
 
+[Check out this Tutorial on Colab!](https://colab.research.google.com/github/kathlandgren/spherephize/blob/main/Tutorial.ipynb)
+
 [![Documentation Status](https://readthedocs.org/projects/spherephize/badge/?version=latest)](http://spherephize.readthedocs.io/en/latest/?badge=latest)
