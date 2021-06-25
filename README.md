@@ -13,3 +13,6 @@ Spherephize uses plotly to create the interactive plots.
 
 [![Documentation Status](https://readthedocs.org/projects/spherephize/badge/?version=latest)](http://spherephize.readthedocs.io/en/latest/?badge=latest)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5032520.svg)](https://zenodo.org/record/5032521#.YNYC22RKiUk)
+
+
+_Some users have reported issues with Chrome. If your plot does not display properly, try a different browser._
