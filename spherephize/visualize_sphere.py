@@ -27,6 +27,15 @@ class Sphere:
     #init method
     def __init__(self, num_lat,num_lon,temp_type):
         """Constructor method
+        
+        Parameters
+        ----------
+        num_lat : int
+            Positive integer, number of latitudes.
+        num_lon : int
+            Positive integer, number of longitudes.
+        temp_type : string
+            A string: "uniform", "zonal", or "custom".
         """
         
         
@@ -207,7 +216,6 @@ def plot_sphere(planet,theta,phi,temp,cmin=700,cmax=1200,cscale='jet',save=False
                         zaxis = dict(
                              showbackground=False,visible=False)))
                       
-    fig.show()
 
     if save==1:
         fig.write_html(name+".html")
