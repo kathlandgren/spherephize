@@ -30,7 +30,7 @@ class Sphere:
         """
         
         
-
+        np.seterr(divide='ignore', invalid='ignore') 
         self.num_lat=num_lat
         self.num_lon=num_lon
         self.temp_type=temp_type
